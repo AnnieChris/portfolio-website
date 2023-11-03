@@ -8,16 +8,15 @@ import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom';
 
 import Home from './component/Home';
 import Error from './component/Error';
+import { Navbar } from 'react-bootstrap';
 
 function App() {
   return (
-    <div className="App"  >      
-      <Router>     
+    <div className="App"  >         
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='*' element={<Error />} />
-        </Routes> 
-      </Router>
+        </Routes>       
     </div>
   );
 }

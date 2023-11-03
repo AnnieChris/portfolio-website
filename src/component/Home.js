@@ -10,14 +10,16 @@ import DarkModeToggle from './DarkModeToggle';
 import Projects from './Projects'
 import Skills from './Skills'
 import Contact from './Contact'
+import PageUnderConstruction from './PageUnderConstruction';
 
 const Home = () => {
   const [darkMode, setDarkMode] = useState(false);
   return (
     <section className={`${darkMode ? 'dark' : 'light'} mode-container`}>
-      <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
-      <NavBar />
+      {/* <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} /> */}
+      {/* <NavBar /> */}
       <div className='home' id='home'>
+        <PageUnderConstruction/>
 
       </div>
     </section>
