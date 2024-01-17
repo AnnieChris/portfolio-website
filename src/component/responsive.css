@@ -1,0 +1,23 @@
+@media screen and (max-width: 600px) and (min-width: 300px){
+    .darktogglebtn{
+        display: none;
+    }
+    .skillsets{
+        width: fit-content;
+    }
+    .sparkle-container{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 900px) and (min-width: 600px){
+    .darktogglebtn{
+        right: 190px;
+    }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 900px){
+    .darktogglebtn{
+        right: 5px;
+    }
+}

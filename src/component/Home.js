@@ -1,29 +1,87 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from './NavBar';
-import { Button, Image } from 'react-bootstrap';
-
+import { Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircle, faCircleChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate, Link, useLocation } from "react-router-dom";
+import { faCircleChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 import DarkModeToggle from './DarkModeToggle';
-import Projects from './Projects'
-import Skills from './Skills'
-import Contact from './Contact'
-import PageUnderConstruction from './PageUnderConstruction';
+import Projects from './Projects';
+import Skills from './Skills';
+import Contact from './Contact';
+import Footer from './Footer';
+import SparkleTrail from './SparkleTrail';
 
 const Home = () => {
   const [darkMode, setDarkMode] = useState(false);
-  return (
-    <section className={`${darkMode ? 'dark' : 'light'} mode-container`}>
-      {/* <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} /> */}
-      {/* <NavBar /> */}
-      <div className='home' id='home'>
-        <PageUnderConstruction/>
+  const handleResumeBtn = (e) => {
+    e.preventDefault();
+    window.open("https://drive.google.com/file/d/1A2dDI-N2mhHWgvehv5Zh67qiq2A9Ob-I/view?usp=sharing", '_blank');
+  }
 
-      </div>
-    </section>
+  /* Scroll Top Button */
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    const buttonVisibility = () => {
+      const isScrollingDown = window.scrollY > 300;
+      setShowButton(isScrollingDown);
+    };
+
+    window.addEventListener('scroll', buttonVisibility);
+
+    return () => {
+      window.removeEventListener('scroll', buttonVisibility);
+    };
+  }, []);
+
+  const handleScrollTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return (
+    <div className='contents'>
+      <NavBar />
+      {showButton && (
+        <div className={`scroll-top`} >
+          <button onClick={handleScrollTop} className="scroll-to-top-button">
+            <FontAwesomeIcon icon={faCircleChevronUp} size="2xl" style={{ color: "#95beff", }} />
+          </button>
+        </div>
+      )}
+      <section className={`${darkMode ? 'dark' : 'light'} mode-container`}>
+        <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
+        <div className='page-contents' >
+          <SparkleTrail color="gold" />
+          <div className='home_contents ' id='home'>
+            <h1>Hi, I'm <span className='name'>Annie Esther Wilson,</span></h1>
+            <p>A Passionate Front-end Web developer with expertise in crafting engaging user interfaces and web applications that contribute to overall product success.</p>
+            <Button className='resume_btn' onClick={handleResumeBtn}>
+              <span>Resume</span>
+            </Button>
+          </div>
+
+          <div className='projects-content ' id='projects'>
+            <h3>Projects</h3>
+            <Projects />
+          </div>
+
+          <div className='skills-content ' id='skills'>
+            <h3>Skills</h3>
+            <Skills />
+          </div>
+
+          <div className='contact-content ' id='contact'>
+            <h3>Contact</h3>
+            <Contact />
+          </div>
+
+          <div className='footer-content ' id='footer'>
+            <Footer />
+          </div>
+        </div>
+      </section>
+    </div>
   )
 }
 
-export default Home
+export default Home;
