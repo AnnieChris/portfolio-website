@@ -151,6 +151,7 @@ const Skills = () => {
   const ref = useRef(null);
 
   const handleMouseEnter = (e, sk) => {
+    e.preventDefault();
     setTarget(e.target);
     setOverlayContent(sk);
   };
@@ -167,16 +168,19 @@ const Skills = () => {
       setOverlayContent(null);
     }, 10000);
   };
-
+  const handleOverlayExited = () => {
+    setTarget(null);
+    setOverlayContent(null);
+  };
 
   return (
     <ul className='skillsets' ref={ref}>
       {skillslist.map((sk) => (
         <li
           key={sk.id}
-          /* onMouseEnter={(e) => handleMouseEnter(e, sk)}*/
-          onMouseLeave={handleMouseLeave}
-          onClick={(e) => handleClick(e, sk)}
+          /* onMouseEnter={(e) => handleMouseEnter(e, sk)}
+          onMouseLeave={handleMouseLeave} */
+          onClick={(e) => handleClick(e, sk)} 
           
         >
           {sk.skill}
@@ -186,11 +190,13 @@ const Skills = () => {
             placement="top"
             container={ref}
             containerPadding={20}
+            onExited={handleOverlayExited}
+            style={{ transition: 'opacity 0.3s ease-in-out' }}
           >
             <Popover id="popover-contained">
               <Popover.Header as="h4">{overlayContent?.range}</Popover.Header>
               <Popover.Body>
-                <ProgressBar variant="success" now={overlayContent?.bar} active />
+                <ProgressBar variant="success" now={overlayContent?.bar} active style={{ transition: 'width 0.3s ease-in-out' }}/>
               </Popover.Body>
             </Popover>
           </Overlay>

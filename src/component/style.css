@@ -226,7 +226,7 @@ button.contact_btn:hover span:after {
 }
 
 .card img.obj_fit {
-    object-fit: inherit;
+    object-fit: cover;
 }
 
 .card img:hover {

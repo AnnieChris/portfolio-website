@@ -8,6 +8,7 @@ import zippy from '../images/MARS.png'
 import church from '../images/church.png'
 import gsr from '../images/GSR_Logo.png'
 import calculator from '../images/calculator.jpg'
+import agecalculator from '../images/agecalculator.jpg'
 import camera from '../images/camera.jpg'
 import elearning from '../images/e-learning.jpg'
 
@@ -57,6 +58,19 @@ const Projects = () => {
                 Some text for Card 3.
               </Card.Text> */}
                   <Button variant="primary" onClick={() => window.open("https://greatscenicrailways.co.uk/", "_blank")}>View Project</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col md="auto">
+              <Card>
+                <Card.Img variant="top" src={agecalculator} className='obj_fit'/>
+                <Card.Body>
+                  <Card.Title>Age Calculator</Card.Title>
+                  {/* <Card.Text>
+                Some text for Card 3.
+              </Card.Text> */}
+                  <Button variant="primary" onClick={() => window.open("https://anniechris.github.io/age-calculator/", "_blank")}>View Project</Button>
                 </Card.Body>
               </Card>
             </Col>
