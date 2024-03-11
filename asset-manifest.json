@@ -1,24 +1,25 @@
 {
   "files": {
-    "main.css": "/portfolio-website/static/css/main.fcfbb260.css",
-    "main.js": "/portfolio-website/static/js/main.272b25e9.js",
+    "main.css": "/portfolio-website/static/css/main.908c7580.css",
+    "main.js": "/portfolio-website/static/js/main.7741aec5.js",
     "static/js/787.749b4a44.chunk.js": "/portfolio-website/static/js/787.749b4a44.chunk.js",
     "static/media/AnnieW.jpg": "/portfolio-website/static/media/AnnieW.b8c4df508eddb7ff552b.jpg",
     "static/media/camera.jpg": "/portfolio-website/static/media/camera.e84a3d7649459abbd17e.jpg",
     "static/media/calculator.jpg": "/portfolio-website/static/media/calculator.62f1649710799bf3c7d9.jpg",
     "static/media/agecalculator.jpg": "/portfolio-website/static/media/agecalculator.ac099ab61878b33d520c.jpg",
     "static/media/MARS.png": "/portfolio-website/static/media/MARS.873582e30eedffaffe7d.png",
+    "static/media/chocolate.jpg": "/portfolio-website/static/media/chocolate.50bdeb5f8bcd720cbb19.jpg",
     "static/media/e-learning.jpg": "/portfolio-website/static/media/e-learning.689629f6e1c204aba61d.jpg",
     "static/media/church.png": "/portfolio-website/static/media/church.be02ed0799ba0d278d03.png",
     "static/media/GSR_Logo.png": "/portfolio-website/static/media/GSR_Logo.4432c577dbaa3fd10bff.png",
     "static/media/logo.svg": "/portfolio-website/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/portfolio-website/index.html",
-    "main.fcfbb260.css.map": "/portfolio-website/static/css/main.fcfbb260.css.map",
-    "main.272b25e9.js.map": "/portfolio-website/static/js/main.272b25e9.js.map",
+    "main.908c7580.css.map": "/portfolio-website/static/css/main.908c7580.css.map",
+    "main.7741aec5.js.map": "/portfolio-website/static/js/main.7741aec5.js.map",
     "787.749b4a44.chunk.js.map": "/portfolio-website/static/js/787.749b4a44.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fcfbb260.css",
-    "static/js/main.272b25e9.js"
+    "static/css/main.908c7580.css",
+    "static/js/main.7741aec5.js"
   ]
 }
