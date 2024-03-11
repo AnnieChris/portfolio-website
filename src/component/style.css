@@ -212,7 +212,7 @@ button.contact_btn:hover span:after {
     align-items: center;
 }
 
-.card {
+.carousel-item .card {
     width: 15rem;
     height: 18em !important;
     margin: auto;
@@ -244,6 +244,7 @@ button.contact_btn:hover span:after {
     appearance: none;
     cursor: pointer;
     position: relative;
+    width: max-content;
 
 }
 

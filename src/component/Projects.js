@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { Carousel, Card, Button, Row, Col, Modal } from 'react-bootstrap';
+import { Carousel, Card, Button, Row, Col, Modal, Container } from 'react-bootstrap';
 import ReactCardSlider from 'react-card-slider-component';
 import { Link } from 'react-router-dom';
 
@@ -11,6 +11,8 @@ import calculator from '../images/calculator.jpg'
 import agecalculator from '../images/agecalculator.jpg'
 import camera from '../images/camera.jpg'
 import elearning from '../images/e-learning.jpg'
+import chocolate from '../images/chocolate.jpg'
+import book from '../images/book.jpeg'
 
 const Projects = () => {
 
@@ -61,10 +63,15 @@ const Projects = () => {
                 </Card.Body>
               </Card>
             </Col>
+          </Row>
+        </Carousel.Item>
+
+        <Carousel.Item>
+          <Row className="justify-content-md-center">
 
             <Col md="auto">
               <Card>
-                <Card.Img variant="top" src={agecalculator} className='obj_fit'/>
+                <Card.Img variant="top" src={agecalculator} className='obj_fit' />
                 <Card.Body>
                   <Card.Title>Age Calculator</Card.Title>
                   {/* <Card.Text>
@@ -75,59 +82,23 @@ const Projects = () => {
               </Card>
             </Col>
 
-            {/* <Col md="auto">
-              <Card>
-                <Card.Img variant="top" src={camera} className='obj_fit' />
-                <Card.Body>
-                  <Card.Title>Photography</Card.Title>
-                  <Card.Text>
-                    Some text for Card 3.
-                  </Card.Text>
-                  <Button variant="primary" onClick={() => window.open("https://google.com", "_blank")}>View Project</Button>
-                </Card.Body>
-              </Card>
-            </Col> */}
-
-          </Row>
-        </Carousel.Item>
-
-        <Carousel.Item>
-          <Row className="justify-content-md-center">
-            {/* <Col md="auto">
-              <Card>
-                <Card.Img variant="top" src={elearning} className='obj_fit' />
-                <Card.Body>
-                  <Card.Title>E-learning</Card.Title>
-                  <Card.Text>
-                    Some text for Card 4.
-                  </Card.Text>
-                  <Button variant="primary" onClick={() => window.open("https://google.com", "_blank")}>View Project</Button>
-                </Card.Body>
-              </Card>
-            </Col> */}
-            {/* 
             <Col md="auto">
               <Card>
-                <Card.Img variant="top" src={calculator} className='obj_fit' />
+                <Card.Img variant="top" src={book} className='obj_fit' />
                 <Card.Body>
-                  <Card.Title>Calculator App</Card.Title>
-                  <Card.Text>
-                    Some text for Card 5.
-                  </Card.Text>
-
-                  <Button variant="primary" onClick={() => window.open("https://google.com", "_blank")}>View Project</Button>
-                </Card.Body>
-              </Card>
-            </Col> */}
-
-            <Col md="auto">
-              <Card>
-                {/* <Card.Img variant="top" src="https://picsum.photos/700/600" /> */}
-                <Card.Body style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                  {/* <Card.Title>Great Scenic Railways</Card.Title> */}
+                  <Card.Title>Book Store</Card.Title>
                   {/* <Card.Text>
-                Some text for Card 3.
-              </Card.Text> */}
+                    Some text for Card 5.
+                  </Card.Text> */}
+
+                  <Button variant="primary" onClick={() => window.open("https://google.com", "_blank")}>View Project</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col md="auto">
+              <Card>
+                <Card.Body style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                   <Button variant="primary" onClick={handleShow}>View More</Button>
                 </Card.Body>
               </Card>
@@ -147,7 +118,64 @@ const Projects = () => {
           <Modal.Title>View More Projects</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h3>Under Construction</h3>
+          {/* <h3>Under Construction</h3> */}
+          <Container fluid >
+            <Row md={3}>
+              <Col style={{ marginBottom: "20px" }}>
+                <Card>
+                  <Card.Img variant="top" src={elearning} className='obj_fit' />
+                  <Card.Body>
+                    <Card.Title>E-learning</Card.Title>
+                    {/* <Card.Text>
+                      Some text for Card 4.
+                    </Card.Text> */}
+                    <Button variant="primary" onClick={() => window.open("https://google.com", "_blank")}>View Project</Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+
+              <Col style={{ marginBottom: "20px" }}>
+                <Card>
+                  <Card.Img variant="top" src={chocolate} className='obj_fit' />
+                  <Card.Body>
+                    <Card.Title>Chocolate Store</Card.Title>
+                    {/* <Card.Text>
+                    Some text for Card 5.
+                  </Card.Text> */}
+
+                    <Button variant="primary" onClick={() => window.open("https://google.com", "_blank")}>View Project</Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+
+              <Col style={{ marginBottom: "20px" }}>
+                <Card>
+                  <Card.Img variant="top" src={camera} className='obj_fit' />
+                  <Card.Body>
+                    <Card.Title>Photography</Card.Title>
+                    {/* <Card.Text>
+                      Some text for Card 3.
+                    </Card.Text> */}
+                    <Button variant="primary" onClick={() => window.open("https://google.com", "_blank")}>View Project</Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+
+              <Col style={{ marginBottom: "20px" }}>
+                <Card>
+                  <Card.Img variant="top" src={calculator} className='obj_fit' />
+                  <Card.Body>
+                    <Card.Title>Calculator App</Card.Title>
+                    {/* <Card.Text>
+                    Some text for Card 5.
+                  </Card.Text> */}
+
+                    <Button variant="primary" onClick={() => window.open("https://google.com", "_blank")}>View Project</Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+            </Row>
+          </Container>
 
 
         </Modal.Body>
