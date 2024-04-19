@@ -2,6 +2,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Gabriela&display=swap');
 @import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
 
+.welcome{
+    display: flex;
+    align-items: center;
+    gap: 10em;
+    padding: 2em;
+    width: 100%;
+    height: 100vh;
+}
+.welcome h1{
+    font-family:cursive;
+    color: #532b4b;
+    font-weight: 800;
+    text-shadow: 3px 2px #ec8ad7;   
+}
+.welcome h1::first-letter{
+    font-size: 2em;
+}
+.welcome img{
+    width: 35em;
+    padding: 3em;
+    background-size: cover;
+    
+}
+.Typewriter__cursor{
+    display: none;
+  }
+  
 html {
     scroll-behavior: smooth;
 }

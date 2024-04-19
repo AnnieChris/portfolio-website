@@ -13,6 +13,7 @@ import camera from '../images/camera.jpg'
 import elearning from '../images/e-learning.jpg'
 import chocolate from '../images/chocolate.jpg'
 import book from '../images/book.jpeg'
+import budget from '../images/budget.jpg'
 
 const Projects = () => {
 
@@ -84,14 +85,14 @@ const Projects = () => {
 
             <Col md="auto">
               <Card>
-                <Card.Img variant="top" src={book} className='obj_fit' />
+                <Card.Img variant="top" src={budget} className='obj_fit' />
                 <Card.Body>
-                  <Card.Title>Book Store</Card.Title>
+                  <Card.Title>Budget Planner</Card.Title>
                   {/* <Card.Text>
                     Some text for Card 5.
                   </Card.Text> */}
 
-                  <Button variant="primary" onClick={() => window.open("https://google.com", "_blank")}>View Project</Button>
+                  <Button variant="primary" onClick={() => window.open("https://anniechris.github.io/budget-planner/", "_blank")}>View Project</Button>
                 </Card.Body>
               </Card>
             </Col>
@@ -174,6 +175,19 @@ const Projects = () => {
                   </Card.Body>
                 </Card>
               </Col>
+              <Col style={{ marginBottom: "20px" }}>
+              <Card>
+                <Card.Img variant="top" src={book} className='obj_fit' />
+                <Card.Body>
+                  <Card.Title>Book Store</Card.Title>
+                  {/* <Card.Text>
+                    Some text for Card 5.
+                  </Card.Text> */}
+
+                  <Button variant="primary" onClick={() => window.open("https://google.com", "_blank")}>View Project</Button>
+                </Card.Body>
+              </Card>
+            </Col>
             </Row>
           </Container>
 
