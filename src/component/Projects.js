@@ -69,19 +69,19 @@ const Projects = () => {
 
         <Carousel.Item>
           <Row className="justify-content-md-center">
+          <Col style={{ marginBottom: "20px" }}>
+                <Card>
+                  <Card.Img variant="top" src={calculator} className='obj_fit' />
+                  <Card.Body>
+                    <Card.Title>Calculator App</Card.Title>
+                    {/* <Card.Text>
+                    Some text for Card 5.
+                  </Card.Text> */}
 
-            <Col md="auto">
-              <Card>
-                <Card.Img variant="top" src={agecalculator} className='obj_fit' />
-                <Card.Body>
-                  <Card.Title>Age Calculator</Card.Title>
-                  {/* <Card.Text>
-                Some text for Card 3.
-              </Card.Text> */}
-                  <Button variant="primary" onClick={() => window.open("https://anniechris.github.io/age-calculator/", "_blank")}>View Project</Button>
-                </Card.Body>
-              </Card>
-            </Col>
+                    <Button variant="primary" onClick={() => window.open("https://anniechris.github.io/calculator-app/", "_blank")}>View Project</Button>
+                  </Card.Body>
+                </Card>
+              </Col>
 
             <Col md="auto">
               <Card>
@@ -122,6 +122,19 @@ const Projects = () => {
           {/* <h3>Under Construction</h3> */}
           <Container fluid >
             <Row md={3}>
+            <Col style={{ marginBottom: "20px" }}>
+              <Card>
+                <Card.Img variant="top" src={agecalculator} className='obj_fit' />
+                <Card.Body>
+                  <Card.Title>Age Calculator</Card.Title>
+                  {/* <Card.Text>
+                Some text for Card 3.
+              </Card.Text> */}
+                  <Button variant="primary" onClick={() => window.open("https://anniechris.github.io/age-calculator/", "_blank")}>View Project</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+
               <Col style={{ marginBottom: "20px" }}>
                 <Card>
                   <Card.Img variant="top" src={elearning} className='obj_fit' />
@@ -162,19 +175,6 @@ const Projects = () => {
                 </Card>
               </Col>
 
-              <Col style={{ marginBottom: "20px" }}>
-                <Card>
-                  <Card.Img variant="top" src={calculator} className='obj_fit' />
-                  <Card.Body>
-                    <Card.Title>Calculator App</Card.Title>
-                    {/* <Card.Text>
-                    Some text for Card 5.
-                  </Card.Text> */}
-
-                    <Button variant="primary" onClick={() => window.open("https://google.com", "_blank")}>View Project</Button>
-                  </Card.Body>
-                </Card>
-              </Col>
               <Col style={{ marginBottom: "20px" }}>
               <Card>
                 <Card.Img variant="top" src={book} className='obj_fit' />
