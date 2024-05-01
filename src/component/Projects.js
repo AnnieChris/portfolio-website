@@ -14,6 +14,7 @@ import elearning from '../images/e-learning.jpg'
 import chocolate from '../images/chocolate.jpg'
 import book from '../images/book.jpeg'
 import budget from '../images/budget.jpg'
+import weather from '../images/cloudy-day.png'
 
 const Projects = () => {
 
@@ -73,7 +74,7 @@ const Projects = () => {
                 <Card>
                   <Card.Img variant="top" src={calculator} className='obj_fit' />
                   <Card.Body>
-                    <Card.Title>Calculator App</Card.Title>
+                    <Card.Title>Calculator</Card.Title>
                     {/* <Card.Text>
                     Some text for Card 5.
                   </Card.Text> */}
@@ -85,14 +86,14 @@ const Projects = () => {
 
             <Col md="auto">
               <Card>
-                <Card.Img variant="top" src={budget} className='obj_fit' />
+                <Card.Img variant="top" src={weather} className='obj_fit' />
                 <Card.Body>
-                  <Card.Title>Budget Planner</Card.Title>
+                  <Card.Title>Weather App</Card.Title>
                   {/* <Card.Text>
                     Some text for Card 5.
                   </Card.Text> */}
 
-                  <Button variant="primary" onClick={() => window.open("https://anniechris.github.io/budget-planner/", "_blank")}>View Project</Button>
+                  <Button variant="primary" onClick={() => window.open("https://anniechris.github.io/weather-app/", "_blank")}>View Project</Button>
                 </Card.Body>
               </Card>
             </Col>
@@ -131,6 +132,20 @@ const Projects = () => {
                 Some text for Card 3.
               </Card.Text> */}
                   <Button variant="primary" onClick={() => window.open("https://anniechris.github.io/age-calculator/", "_blank")}>View Project</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col style={{ marginBottom: "20px" }}>
+              <Card>
+                <Card.Img variant="top" src={budget} className='obj_fit' />
+                <Card.Body>
+                  <Card.Title>Budget Planner</Card.Title>
+                  {/* <Card.Text>
+                    Some text for Card 5.
+                  </Card.Text> */}
+
+                  <Button variant="primary" onClick={() => window.open("https://anniechris.github.io/budget-planner/", "_blank")}>View Project</Button>
                 </Card.Body>
               </Card>
             </Col>
