@@ -8,6 +8,7 @@ import zippy from '../images/MARS.png'
 import church from '../images/church.png'
 import gsr from '../images/GSR_Logo.png'
 import calculator from '../images/calculator.jpg'
+import ecommerce from '../images/ecommerce.png'
 import agecalculator from '../images/agecalculator.jpg'
 import camera from '../images/camera.jpg'
 import elearning from '../images/e-learning.jpg'
@@ -70,23 +71,23 @@ const Projects = () => {
 
         <Carousel.Item>
           <Row className="justify-content-md-center">
-          <Col style={{ marginBottom: "20px" }}>
-                <Card>
-                  <Card.Img variant="top" src={calculator} className='obj_fit' />
-                  <Card.Body>
-                    <Card.Title>Calculator</Card.Title>
-                    {/* <Card.Text>
+            <Col style={{ marginBottom: "20px" }}>
+              <Card>
+                <Card.Img variant="top" src={ecommerce} className='' />
+                <Card.Body>
+                  <Card.Title>E-Commerce Website</Card.Title>
+                  {/* <Card.Text>
                     Some text for Card 5.
                   </Card.Text> */}
 
-                    <Button variant="primary" onClick={() => window.open("https://anniechris.github.io/calculator-app/", "_blank")}>View Project</Button>
-                  </Card.Body>
-                </Card>
-              </Col>
+                  <Button variant="primary" onClick={() => window.open("https://anniechris.github.io/e-commerce-app/", "_blank")}>View Project</Button>
+                </Card.Body>
+              </Card>
+            </Col>
 
             <Col md="auto">
               <Card>
-                <Card.Img variant="top" src={weather} className='obj_fit' />
+                <Card.Img variant="top" src={weather} className='' />
                 <Card.Body>
                   <Card.Title>Weather App</Card.Title>
                   {/* <Card.Text>
@@ -123,32 +124,47 @@ const Projects = () => {
           {/* <h3>Under Construction</h3> */}
           <Container fluid >
             <Row md={3}>
-            <Col style={{ marginBottom: "20px" }}>
-              <Card>
-                <Card.Img variant="top" src={agecalculator} className='obj_fit' />
-                <Card.Body>
-                  <Card.Title>Age Calculator</Card.Title>
-                  {/* <Card.Text>
-                Some text for Card 3.
-              </Card.Text> */}
-                  <Button variant="primary" onClick={() => window.open("https://anniechris.github.io/age-calculator/", "_blank")}>View Project</Button>
-                </Card.Body>
-              </Card>
-            </Col>
 
             <Col style={{ marginBottom: "20px" }}>
               <Card>
-                <Card.Img variant="top" src={budget} className='obj_fit' />
+                <Card.Img variant="top" src={calculator} className='obj_fit' />
                 <Card.Body>
-                  <Card.Title>Budget Planner</Card.Title>
+                  <Card.Title>Calculator</Card.Title>
                   {/* <Card.Text>
                     Some text for Card 5.
                   </Card.Text> */}
 
-                  <Button variant="primary" onClick={() => window.open("https://anniechris.github.io/budget-planner/", "_blank")}>View Project</Button>
+                  <Button variant="primary" onClick={() => window.open("https://anniechris.github.io/calculator-app/", "_blank")}>View Project</Button>
                 </Card.Body>
               </Card>
             </Col>
+
+              <Col style={{ marginBottom: "20px" }}>
+                <Card>
+                  <Card.Img variant="top" src={budget} className='obj_fit' />
+                  <Card.Body>
+                    <Card.Title>Budget Planner</Card.Title>
+                    {/* <Card.Text>
+                    Some text for Card 5.
+                  </Card.Text> */}
+
+                    <Button variant="primary" onClick={() => window.open("https://anniechris.github.io/budget-planner/", "_blank")}>View Project</Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+
+              <Col style={{ marginBottom: "20px" }}>
+                <Card>
+                  <Card.Img variant="top" src={agecalculator} className='obj_fit' />
+                  <Card.Body>
+                    <Card.Title>Age Calculator</Card.Title>
+                    {/* <Card.Text>
+                Some text for Card 3.
+              </Card.Text> */}
+                    <Button variant="primary" onClick={() => window.open("https://anniechris.github.io/age-calculator/", "_blank")}>View Project</Button>
+                  </Card.Body>
+                </Card>
+              </Col>
 
               <Col style={{ marginBottom: "20px" }}>
                 <Card>
@@ -191,18 +207,18 @@ const Projects = () => {
               </Col>
 
               <Col style={{ marginBottom: "20px" }}>
-              <Card>
-                <Card.Img variant="top" src={book} className='obj_fit' />
-                <Card.Body>
-                  <Card.Title>Book Store</Card.Title>
-                  {/* <Card.Text>
+                <Card>
+                  <Card.Img variant="top" src={book} className='obj_fit' />
+                  <Card.Body>
+                    <Card.Title>Book Store</Card.Title>
+                    {/* <Card.Text>
                     Some text for Card 5.
                   </Card.Text> */}
 
-                  <Button variant="primary" onClick={() => window.open("https://google.com", "_blank")}>View Project</Button>
-                </Card.Body>
-              </Card>
-            </Col>
+                    <Button variant="primary" onClick={() => window.open("https://google.com", "_blank")}>View Project</Button>
+                  </Card.Body>
+                </Card>
+              </Col>
             </Row>
           </Container>
 

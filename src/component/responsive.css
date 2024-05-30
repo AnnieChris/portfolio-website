@@ -1,4 +1,12 @@
 @media screen and (max-width: 600px) and (min-width: 300px){
+    .welcome{
+        flex-direction: column;
+        height: 70vh;
+        padding: 0em;
+    }
+    .welcome img{
+        width: 90%;
+    }
     .darktogglebtn{
         display: none;
     }

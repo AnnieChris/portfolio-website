@@ -79,7 +79,7 @@ const Home = () => {
             <SparkleTrail color="gold" />
             <div className='home_contents ' id='home'>
               <h1>Hi, I'm <span className='name'>Annie Esther Wilson,</span></h1>
-              <p>A Passionate Front-end Web developer with expertise in crafting engaging user interfaces and web applications that contribute to overall product success.</p>
+              <p>A Passionate Web developer with expertise in crafting engaging user interfaces and web applications that contribute to overall product success.</p>
               <Button className='resume_btn' onClick={handleResumeBtn}>
                 <span>Resume</span>
               </Button>
