@@ -324,7 +324,7 @@ button.contact_btn:hover span:after {
     justify-content: center;
     text-align: center;
     align-items: center;
-    margin: auto;
+    margin: 0 auto;
     padding: 20px;
 }
 

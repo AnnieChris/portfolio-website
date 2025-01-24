@@ -26,7 +26,7 @@ const Home = () => {
   const [darkMode, setDarkMode] = useState(false);
   const handleResumeBtn = (e) => {
     e.preventDefault();
-    window.open("https://drive.google.com/file/d/1A2dDI-N2mhHWgvehv5Zh67qiq2A9Ob-I/view?usp=sharing", '_blank');
+    window.open("https://drive.google.com/file/d/16We_wbr5jDL2m5wwhmBXNs0zr6R8iOcy/view?usp=sharing", '_blank');
   }
 
   /* Scroll Top Button */
