@@ -1,0 +1,359 @@
+/* ================================
+   General Styles
+================================= */
+
+/* Global Colors */
+:root {
+  --primary-color: #411261; 
+  --secondary-color: #ff1493; 
+  --accent-color: #e9ecef; 
+  --bg-color: #17092e; 
+  --bg-color-light: #f7f9fc;
+
+  --button-bg: #fdeaff;
+  --card-bg: #1a0f24; 
+  --card-hover: #2b0f38; 
+  --shadow-color: rgba(0,0,0,0.7); 
+  --highlight-color: #0ebeb0; 
+  --bright-color: #ffbb5a;
+
+  --text-color: #4d4d4d; 
+  --text-color-light: #fdfdfd; 
+  --text-hover: #ffffff;
+  --h1-color: #8b2bff;
+  --h2-color: #440d86;
+  --h3-color: #3f0d91;
+  --h4-color: #333333;
+  --h5-color: #6f5f86;
+  --h6-color: #777777;
+
+  --transition: transition: all 0.3s ease;
+}
+
+body { 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: var(--transition);
+}
+
+body.light-mode {
+  background-color: var(--bg-color-light);
+  color: var(--text-color);
+}
+body.dark-mode {
+  background-color: var(--bg-color);
+  color: var(--text-color-light);
+}
+a {
+  text-decoration: none;
+  transition: color 0.3s;
+}
+body.light-mode h2{
+  color: var(--h2-color);
+}
+body.dark-mode h2{
+  color: var(--bg-color-light);
+}
+body.light-mode h5{
+  color: var(--h5-color);
+}
+body.light-mode .text-gradient {
+          background: linear-gradient(180deg, rgb(115, 22, 100), rgb(74, 36, 128));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+}
+
+/* ================================
+   Navbar
+================================= */
+.navbar-header {
+  background: linear-gradient(135deg, var(--bg-color), var(--primary-color));
+}
+.navbar-header .nav-link {
+  position: relative;
+  color: var(--text-color-light);
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+.navbar-header .nav-link:focus, .navbar-header .nav-link:hover {
+  color: var(--secondary-color);
+}
+
+/* ================================
+   Dark Mode Toggle
+================================= */
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-color-light);
+  margin-left: 1rem;
+  transition: color 0.3s;
+}
+.dark-mode-toggle:hover {
+  color: var(--bright-color);
+}
+
+/* ================================
+   Hero Section
+================================= */
+.hero {
+  position: relative;
+  overflow: hidden;  
+  background: linear-gradient(135deg, var(--secondary-color), var(--highlight-color));
+}
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  transition: var(--transition);
+}
+.hero p.lead {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  transition: var(--transition);  
+}
+/* Hero buttons */
+.hero .btn {
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 5px;
+  border-radius: 50px;
+  transition: var(--transition);
+  background-color: rgba(255,255,255,0.2);
+  color: #fff;
+  border: 2px solid var(--button-bg);
+}
+.hero .btn:hover {
+  background-color: #fff;
+  color: var(--secondary-color);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
+}
+/* Container for multiple particles */
+.animated-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+/* Create multiple floating circles using pseudo-elements */
+.animated-bg::before,
+.animated-bg::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  animation: float 15s linear infinite;
+}
+/* Different sizes and positions for variety */
+.animated-bg::before {
+  width: 120px;
+  height: 120px;
+  top: 10%;
+  left: 15%;
+}
+.animated-bg::after {
+  width: 200px;
+  height: 200px;
+  top: 60%;
+  left: 70%;
+  animation-duration: 20s;
+}
+/* Additional floating circles */
+.animated-bg span {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  animation: float 12s linear infinite;
+}
+.animated-bg span:nth-child(1) { width: 80px; height: 80px; top: 20%; left: 40%; animation-duration: 18s; }
+.animated-bg span:nth-child(2) { width: 60px; height: 60px; top: 50%; left: 10%; animation-duration: 15s; }
+.animated-bg span:nth-child(3) { width: 100px; height: 100px; top: 70%; left: 50%; animation-duration: 22s; }
+/* Floating animation */
+@keyframes float {
+  0% { transform: translate(0,0); }
+  50% { transform: translate(30px, -50px); }
+  100% { transform: translate(0,0); }
+}
+/* Optional: Draw connecting lines using CSS pseudo-element (subtle effect) */
+.animated-bg::after {
+  box-shadow:
+    200px 50px rgba(255,255,255,0.05),
+    400px 200px rgba(255,255,255,0.05),
+    600px 100px rgba(255,255,255,0.05),
+    800px 250px rgba(255,255,255,0.05);
+}
+
+/* ================================
+   About Section
+================================= */
+.about-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.about-section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Profile Card */
+.card.profile-card {
+  transition: transform 0.3s ease;
+}
+.card.profile-card:hover {
+  transform: translateY(-8px);
+  filter: brightness(1.02);
+}
+.card .profile-photo {  
+  object-fit: contain;
+  width: 70%;
+  border: 5px solid #f6eaef;
+}
+.profile-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.profile-actions .btn-resume {
+  color: var(--secondary-color);
+  background: #fff;
+  border: 2px solid var(--secondary-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  text-decoration: none;
+}
+.profile-actions .btn-resume:hover{
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 90, 155, 0.4);
+  background: linear-gradient(135deg, var(--bright-color), var(--secondary-color));
+  border: 2px solid var(--secondary-color);
+  color: #fff;
+}
+/* Arrow animation */
+.arrow-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.btn-resume:hover .arrow-icon {
+  transform: translateX(5px);
+}
+.btn-resume:hover .arrow-icon.double {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+/* Skills Pills */
+.skill-item {
+  background: linear-gradient(135deg, #dbd9da, #fdeaff);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  gap: 10px;
+}                
+.skill-name{
+  color: var(--text-color);
+}
+.skill-icon svg{
+  width: 32px;
+  height: 32px;
+}
+.skill-item:hover svg{
+  filter:contrast(1.2);
+}
+.skill-item:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  filter: brightness(1.05);
+}
+
+/* ================================
+   Experience Section
+================================= */
+.experience-section {
+  position: relative;
+}
+
+/* ================================
+   Project
+================================= */
+.card.project-card {
+  background: var(--accent-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;      
+}
+.project-card:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  filter: brightness(1.05);
+}
+.project-tabs .nav-link {
+  color: var(--h6-color);
+  border: none !important;
+}
+.project-tabs .nav-link.active {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: #fff !important;
+  border-radius: 20px;
+  padding: 8px 20px;
+}
+
+/* ================================
+   Contact
+================================= */
+.contact-section {
+  position: relative;
+  height: 80vh;
+  background: linear-gradient(135deg, var(--accent-color), var(--bg-color-light));
+  color: var(--text-color);
+}
+.contact-section a{
+  color: var(--bg-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* ================================
+   Footer
+================================= */
+footer {
+  background: linear-gradient(90deg, var(--bg-color), var(--primary-color));
+  border-top: 2px solid rgba(255,255,255,0.2);
+  transition: var(--transition);
+}
+.social-link:hover {
+  color: #0d6efd; /* Bootstrap primary color */
+  transform: scale(1.2);
+  transition: var(--transition);
+}
+/* ================================
+   ScrollToTop Button
+================================= */
+button#scrollToTop {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease-in-out;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+button#scrollToTop.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+button#scrollToTop:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  background-color: var(--h3-color);
+  transition: all 0.2s ease-in-out;
+}
