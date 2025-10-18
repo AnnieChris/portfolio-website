@@ -27,12 +27,18 @@
   --h5-color: #6f5f86;
   --h6-color: #777777;
 
-  --transition: transition: all 0.3s ease;
+  --transition: all 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-y: auto;
 }
 
 body { 
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   transition: var(--transition);
+  overflow-y: visible;
 }
 
 body.light-mode {
@@ -97,8 +103,8 @@ body.light-mode .text-gradient {
    Hero Section
 ================================= */
 .hero {
-  position: relative;
-  overflow: hidden;  
+  min-height: 100vh;
+  overflow: visible;  
   background: linear-gradient(135deg, var(--secondary-color), var(--highlight-color));
 }
 .hero h1 {
@@ -273,8 +279,8 @@ body.light-mode .text-gradient {
 /* ================================
    Experience Section
 ================================= */
-.experience-section {
-  position: relative;
+body.light-mode .experience-section {
+  background: linear-gradient(90deg, var(--accent-color), var(--button-bg));
 }
 
 /* ================================
@@ -306,22 +312,30 @@ body.light-mode .text-gradient {
 .contact-section {
   position: relative;
   height: 80vh;
-  background: linear-gradient(135deg, var(--accent-color), var(--bg-color-light));
-  color: var(--text-color);
+  overflow: visible;       
+}
+body.light-mode .contact-section {
+    background: linear-gradient(90deg, var(--accent-color), var(--button-bg));
 }
 .contact-section a{
   color: var(--bg-color);
   cursor: pointer;
   transition: all 0.3s ease;
 }
+body.dark-mode .contact-section a{
+  color: #fff;
+}
+
 
 /* ================================
    Footer
 ================================= */
 footer {
+  position: relative;
   background: linear-gradient(90deg, var(--bg-color), var(--primary-color));
   border-top: 2px solid rgba(255,255,255,0.2);
   transition: var(--transition);
+  z-index: 10;
 }
 .social-link:hover {
   color: #0d6efd; /* Bootstrap primary color */

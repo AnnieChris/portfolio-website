@@ -60,7 +60,7 @@ const Contact = ({ id }) => {
               transition={{ duration: 0.8 }}
             >
               <h2 className="mb-4 fw-bold text-gradient">Get in Touch</h2>
-              <p>
+              <p className="my-3">
                 I’m always open to new opportunities, creative collaborations, or just a friendly chat.
                 Feel free to reach out through any of the platforms below — I’d love to connect!
               </p>
