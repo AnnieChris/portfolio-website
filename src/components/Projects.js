@@ -115,7 +115,7 @@ const Projects = ({ id }) => {
           onSelect={(k) => setActiveTab(k)}
           className="justify-content-center mb-4 project-tabs"
         >
-          <Tab eventKey="hubspot" title="HubSpot Projects" className="fw-semibold ">
+          <Tab eventKey="hubspot" title="HubSpot Projects">
             <Row className="g-4">
               <AnimatePresence mode="wait">
                 {projects.hubspot.map((project, index) => (
