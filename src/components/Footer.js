@@ -4,9 +4,7 @@ import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
-    <footer
-      className="text-light bg-dark py-4" data-aos="fade-up"      
-    >
+    <footer className="text-light bg-dark py-4">
       <Container className="text-center">
         <motion.h6
           className="fw-bold mb-2"

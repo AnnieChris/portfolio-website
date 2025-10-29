@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Container, Accordion, Badge, Row, Col } from "react-bootstrap";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import { motion } from "framer-motion";
+import "aos/dist/aos.css";
 
 const experiences = [
   {
@@ -60,7 +60,7 @@ const experiences = [
   },
 ];
 
-export default function Experience({ id }) {
+export default function Experience() {
   const [activeIndex, setActiveIndex] = useState(null);
   const refs = useRef([]);
 
@@ -68,57 +68,30 @@ export default function Experience({ id }) {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
-  // Smooth scroll to opened accordion item
-  useEffect(() => {
-    if (activeIndex !== null && refs.current[activeIndex]) {
-      refs.current[activeIndex].scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-    }
-  }, [activeIndex]);
-
   return (
-    <section id={id} className="experience-section py-5" data-aos="fade-left">
+    <section id="experience" className="experience-section py-5" data-aos="fade-up" data-aos-delay="100">
       <Container>
-        <Row className="align-items-center justify-content-center mb-4">
+        <Row className="align-items-center justify-content-center">
           <Col md={4}>
-            <motion.h2
-              className="fw-bold text-gradient"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
+            <h2 className="fw-bold text-gradient" data-aos="fade-down" data-aos-delay="200">
               Professional Experience
-            </motion.h2>
+            </h2>
           </Col>
-
           <Col md={6}>
             <Accordion activeKey={activeIndex !== null ? activeIndex.toString() : null}>
               {experiences.map((exp, index) => (
-                <motion.div
+                <div
                   key={index}
                   ref={(el) => (refs.current[index] = el)}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4 }}
-                  viewport={{ once: true }}
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
+                  className="mb-3 rounded-3 exp-item"
                 >
                   <Accordion.Item
-                    eventKey={index.toString()}
-                    className="mb-3 border-0 rounded-3"
+                    eventKey={index.toString()}                    
                   >
                     <Accordion.Header onClick={() => handleToggle(index)}>
-                      <div
-                        className="d-flex flex-column w-100"
-                        style={{ transition: "transform 0.2s ease" }}
-                        onMouseEnter={(e) =>
-                          (e.currentTarget.style.transform = "scale(1.02)")
-                        }
-                        onMouseLeave={(e) =>
-                          (e.currentTarget.style.transform = "scale(1)")
-                        }
-                      >
+                      <div className="d-flex flex-column">
                         <span className="company fw-semibold">{exp.company}</span>
                         <span className="location text-muted small">
                           <FaMapMarkerAlt className="me-1" />
@@ -126,23 +99,16 @@ export default function Experience({ id }) {
                         </span>
                       </div>
                     </Accordion.Header>
-
-                    <Accordion.Body
-                      as={motion.div}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <h5 className="role text-secondary fw-semibold">{exp.role}</h5>
-                      <p className="period small text-muted mb-2">{exp.period}</p>
-                      <p className="description">{exp.description}</p>
-                      <div className="tech-stack d-flex flex-wrap gap-2 mt-2">
+                    <Accordion.Body>
+                      <h6 className="fw-semibold text-secondary role">{exp.role}</h6>
+                      <p className="fs-7 mb-2 text-muted period">{exp.period}</p>
+                      <p className="fs-7 description">{exp.description}</p>
+                      <div className="d-flex gap-2 tech-stack">
                         {exp.tech.map((t, i) => (
                           <Badge
                             key={i}
                             bg="secondary"
-                            className="me-2 mb-2"
-                            style={{ fontSize: "0.75rem" }}
+                            className="tech-badge p-2 fw-medium"
                           >
                             {t}
                           </Badge>
@@ -150,7 +116,7 @@ export default function Experience({ id }) {
                       </div>
                     </Accordion.Body>
                   </Accordion.Item>
-                </motion.div>
+                </div>
               ))}
             </Accordion>
           </Col>

@@ -1,4 +1,3 @@
-import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { FaEnvelope, FaLinkedin, FaGithub, FaMapMarkerAlt } from "react-icons/fa";
@@ -47,9 +46,9 @@ const iconVariants = {
   },
 };
 
-const Contact = ({ id }) => {
+const Contact = () => {
   return (
-    <section id={id} className="contact-section py-5 d-flex align-items-center" data-aos="fade-up">
+    <section id="contact" className="contact-section py-5 d-flex align-items-center" data-aos="fade-up">
       <Container>
         <Row className="align-items-center justify-content-center g-4">
           {/* Left Section */}
@@ -87,7 +86,6 @@ const Contact = ({ id }) => {
                   whileHover={{
                     scale: 1.4,
                     rotate: 10,
-                    color: "#0d6efd",
                     textShadow: "0 0 25px rgba(13,110,253,0.7)",
                     filter: "drop-shadow(0 0 12px rgba(13,110,253,0.7))",
                   }}

@@ -1,64 +1,37 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { Button } from "react-bootstrap";
 import { FaSun, FaMoon } from "react-icons/fa";
 
 
 const DarkModeToggle = () => {
-  const [darkMode, setDarkMode] = useState(false);
-
-  // Decide mode on first load
-  useEffect(() => {
-    const savedMode = localStorage.getItem("darkMode");
-
-    if (savedMode !== null) {
-      // 1️⃣ User preference
-      setDarkMode(JSON.parse(savedMode));
-    } else {
-      // 2️⃣ System preference
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-      if (prefersDark) {
-        setDarkMode(true);
-      } else {
-        // 3️⃣ Time-based fallback
-        const hour = new Date().getHours();
-        const isNightTime = hour >= 19 || hour < 7; // 7 PM – 7 AM
-        setDarkMode(isNightTime);
-      }
-    }
-  }, []);
-
-  // Watch for system theme changes (only if user hasn't set manual)
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const handleChange = (e) => {
-      if (!localStorage.getItem("darkMode")) {
-        setDarkMode(e.matches);
-      }
-    };
-    mediaQuery.addEventListener("change", handleChange);
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, []);
-
-  // Apply the theme
-  useEffect(() => {
-    document.body.classList.toggle("dark-mode", darkMode);
-    document.body.classList.toggle("light-mode", !darkMode);
-  }, [darkMode]);
+  // Call the function to get initial mode
+const getInitialMode = () => {
+    const saved = localStorage.getItem("darkMode");
+    if (saved !== null) return saved === "true";
+    const hour = new Date().getHours();
+    return hour >= 18 || hour < 6; // Dark mode from 6 PM to 6 AM
+  };
+  const [isDarkMode, setIsDarkMode] = useState(getInitialMode());
+  
+ useEffect(() => {
+    document.body.classList.remove("dark-mode", "light-mode");
+    document.body.classList.add(isDarkMode ? "dark-mode" : "light-mode");
+    localStorage.setItem("darkMode", isDarkMode);
+  }, [isDarkMode]);
 
   const toggleDarkMode = () => {
-    const newMode = !darkMode;
-    setDarkMode(newMode);
-    localStorage.setItem("darkMode", JSON.stringify(newMode));
+    setIsDarkMode(!isDarkMode);
   };
 
   return (
-    <button
-      className="dark-mode-toggle"
+    <Button
+      variant="outline-warning"
+      className="dark-mode-toggle fs-4 px-2 py-0 shadow-sm"
       onClick={toggleDarkMode}
-      title="Toggle dark/light mode"
+      aria-label="Toggle dark mode"
     >
-      {darkMode ? <FaSun /> : <FaMoon />}
-    </button>
+      {isDarkMode ? <FaSun /> : <FaMoon />}
+    </Button>
   );
 };
 

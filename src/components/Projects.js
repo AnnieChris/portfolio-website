@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { Tabs, Tab, Button, Container, Card, Row, Col } from "react-bootstrap";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
@@ -102,171 +103,74 @@ const projects = {
   ],
 };
 
-const Projects = ({ id }) => {
-  const [activeTab, setActiveTab] = useState("react");
+const Projects = () => {
+  const [activeTab, setActiveTab] = useState("hubspot");
+
+  // Initialize AOS
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true, easing: "ease-in-out" });
+  }, []);
 
   return (
-    <section id={id} className="projects_section py-5" data-aos="fade-up">
+    <section id="projects" className="projects_section py-5" data-aos="zoom-in-up" data-aos-delay="200">
       <Container>
-        <h2 className="text-center mb-4 fw-bold text-gradient">My Projects</h2>
-        <h5 className="text-center mb-5 ">A showcase of my work across various technologies</h5>
+        <h2 className="mb-4 text-center fw-bold text-gradient">My Projects</h2>
+        <h5 className="mb-4 text-center">A showcase of my work across various technologies</h5>
         <Tabs
           activeKey={activeTab}
           onSelect={(k) => setActiveTab(k)}
-          className="justify-content-center mb-4 project-tabs"
+          className="mb-4 justify-content-center project-tabs"
         >
-          <Tab eventKey="hubspot" title="HubSpot Projects">
-            <Row className="g-4">
-              <AnimatePresence mode="wait">
-                {projects.hubspot.map((project, index) => (
-                  <Col key={project.title} md={4} sm={6} xs={12}>
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.3, delay: index * 0.1 }}
-                    >
-                      <Card className="h-100 p-3 d-flex flex-column rounded-4 project-card shadow-sm">
-                        <Card.Body className="d-flex flex-column">
-                          <Card.Title className="fw-semibold mb-3">{project.title}</Card.Title>
-                          <Card.Text className=" flex-grow-1">
-                            {project.description}
-                          </Card.Text>
-                          <div className="mt-auto d-flex gap-2">
-                            {project.github && (
-                              <Button
-                                href={project.github}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                variant="outline-danger"
-                                size="sm"
-                              >
-                                <FaGithub /> Code
-                              </Button>
-                            )}
-                            {project.demo && (
-                              <Button
-                                href={project.demo}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                variant="outline-success"
-                                size="sm"
-                              >
-                                <FaExternalLinkAlt /> Demo
-                              </Button>
-                            )}
-                          </div>
-                        </Card.Body>
-                      </Card>
-                    </motion.div>
-                  </Col>
-                ))}
-              </AnimatePresence>
-            </Row>
-          </Tab>
-          <Tab eventKey="react" title="React Projects">
-            <Row className="g-4">
-              <AnimatePresence mode="wait">
-                {projects.react.map((project, index) => (
-                  <Col key={project.title} md={4} sm={6} xs={12}>
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.3, delay: index * 0.1 }}
-                    >
-                      <Card className="h-100 p-3 d-flex flex-column rounded-4 project-card shadow-sm">
-                        <Card.Body className="d-flex flex-column">
-                          <Card.Title className="fw-semibold mb-3">{project.title}</Card.Title>
-                          <Card.Text className="flex-grow-1">
-                            {project.description}
-                          </Card.Text>
-                          <div className="mt-auto d-flex gap-2">
-                            {project.github && (
-                              <Button
-                                href={project.github}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                variant="outline-danger"
-                                size="sm"
-                              >
-                                <FaGithub /> Code
-                              </Button>
-                            )}
-                            {project.demo && (
-                              <Button
-                                href={project.demo}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                variant="outline-success"
-                                size="sm"
-                              >
-                                <FaExternalLinkAlt /> Demo
-                              </Button>
-                            )}
-                          </div>
-                        </Card.Body>
-                      </Card>
-                    </motion.div>
-                  </Col>
-                ))}
-              </AnimatePresence>
-            </Row>
-          </Tab>
-          
-          <Tab eventKey="other" title="Other Projects">
+          {Object.entries(projects).map(([key, list]) => (
+            <Tab key={key} eventKey={key} title={`${key.charAt(0).toUpperCase() + key.slice(1)} Projects`}>
               <Row className="g-4">
-              <AnimatePresence mode="wait">
-                {projects.other.map((project, index) => (
-                  <Col key={project.title} md={4} sm={6} xs={12}>
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.3, delay: index * 0.1 }}
-                    >
-                      <Card className="h-100 p-3 d-flex flex-column rounded-4 project-card shadow-sm">
-                        <Card.Body className="d-flex flex-column">
-                          <Card.Title className="fw-semibold mb-3">{project.title}</Card.Title>
-                          <Card.Text className=" flex-grow-1">
-                            {project.description}
-                          </Card.Text>
-                          <div className="mt-auto d-flex gap-2">
-                            {project.github && (
-                              <Button
-                                href={project.github}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                variant="outline-danger"
-                                size="sm"
-                              >
-                                <FaGithub /> Code
-                              </Button>
-                            )}
-                            {project.demo && (
-                              <Button
-                                href={project.demo}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                variant="outline-success"
-                                size="sm"
-                              >
-                                <FaExternalLinkAlt /> Demo
-                              </Button>
-                            )}
-                          </div>
-                        </Card.Body>
-                      </Card>
-                    </motion.div>
+                {list.map((project, index) => (
+                  <Col
+                    key={project.title}
+                    md={4}
+                    sm={6}
+                    xs={12}
+                    data-aos="fade-up"
+                    data-aos-delay={index * 200}
+                  >
+                    <Card className="p-3 h-100 w-100 rounded-4 shadow-sm project-card">
+                      <Card.Body className="d-flex flex-column">
+                        <Card.Title className="mb-3 fw-semibold">{project.title}</Card.Title>
+                        <Card.Text className="">{project.description}</Card.Text>
+                        <div className="d-flex gap-2">
+                          {project.github && (
+                            <Button
+                              href={project.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              variant="outline-danger"
+                              size="sm"
+                            >
+                              <FaGithub /> Code
+                            </Button>
+                          )}
+                          {project.demo && (
+                            <Button
+                              href={project.demo}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              variant="outline-success"
+                              size="sm"
+                            >
+                              <FaExternalLinkAlt /> Demo
+                            </Button>
+                          )}
+                        </div>
+                      </Card.Body>
+                    </Card>
                   </Col>
                 ))}
-              </AnimatePresence>
-            </Row>
-          </Tab>
+              </Row>
+            </Tab>
+          ))}
         </Tabs>
       </Container>
     </section>
   );
 };
-
 export default Projects;

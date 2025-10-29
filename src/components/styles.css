@@ -32,13 +32,12 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 body { 
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   transition: var(--transition);
-  overflow-y: visible;
 }
 
 body.light-mode {
@@ -67,20 +66,25 @@ body.light-mode .text-gradient {
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
 }
+section {
+  display: flex;
+  justify-content: center;  
+  align-items: center; 
+  flex-wrap: wrap;     
+}
 
 /* ================================
    Navbar
 ================================= */
-.navbar-header {
+.header-section .navbar-header{
   background: linear-gradient(135deg, var(--bg-color), var(--primary-color));
 }
 .navbar-header .nav-link {
   position: relative;
   color: var(--text-color-light);
-  transition: color 0.3s ease;
-  cursor: pointer;
+  transition: color 0.3s ease-in-out;
 }
-.navbar-header .nav-link:focus, .navbar-header .nav-link:hover {
+.navbar-header .nav-link:focus, .navbar-header .nav-link:hover, .navbar-header .nav-link:active {
   color: var(--secondary-color);
 }
 
@@ -88,53 +92,23 @@ body.light-mode .text-gradient {
    Dark Mode Toggle
 ================================= */
 .dark-mode-toggle {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: var(--text-color-light);
-  margin-left: 1rem;
+  background: none !important;
+  border: none !important;
   transition: color 0.3s;
 }
 .dark-mode-toggle:hover {
-  color: var(--bright-color);
+  color: var(--text-color-light) !important;
 }
 
 /* ================================
    Hero Section
 ================================= */
-.hero {
-  min-height: 100vh;
-  overflow: visible;  
-  background: linear-gradient(135deg, var(--secondary-color), var(--highlight-color));
-}
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-  font-weight: 700;
-  line-height: 1.2;
-  transition: var(--transition);
-}
-.hero p.lead {
-  font-size: 1.5rem;
-  margin-bottom: 30px;
-  transition: var(--transition);  
+.hero-section {
+background: linear-gradient(135deg, var(--secondary-color), var(--highlight-color));
 }
 /* Hero buttons */
-.hero .btn {
-  padding: 12px 30px;
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 5px;
-  border-radius: 50px;
-  transition: var(--transition);
-  background-color: rgba(255,255,255,0.2);
-  color: #fff;
-  border: 2px solid var(--button-bg);
-}
-.hero .btn:hover {
-  background-color: #fff;
-  color: var(--secondary-color);
-  transform: translateY(-3px) scale(1.05);
+.hero-section .btn:hover {
+  color: var(--secondary-color);  
   box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
 }
 /* Container for multiple particles */
@@ -200,13 +174,7 @@ body.light-mode .text-gradient {
    About Section
 ================================= */
 .about-section {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.about-section.show {
-  opacity: 1;
-  transform: translateY(0);
+  background: inherit;
 }
 /* Profile Card */
 .card.profile-card {
@@ -222,17 +190,13 @@ body.light-mode .text-gradient {
   border: 5px solid #f6eaef;
 }
 .profile-actions {
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
+
 }
 .profile-actions .btn-resume {
   color: var(--secondary-color);
-  background: #fff;
   border: 2px solid var(--secondary-color);
+  background: #fff;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-  text-decoration: none;
 }
 .profile-actions .btn-resume:hover{
   transform: scale(1.05);
@@ -256,9 +220,7 @@ body.light-mode .text-gradient {
 /* Skills Pills */
 .skill-item {
   background: linear-gradient(135deg, #dbd9da, #fdeaff);
-  cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  gap: 10px;
 }                
 .skill-name{
   color: var(--text-color);
@@ -282,6 +244,10 @@ body.light-mode .text-gradient {
 body.light-mode .experience-section {
   background: linear-gradient(90deg, var(--accent-color), var(--button-bg));
 }
+body.dark-mode .experience-section {
+  background: linear-gradient(275deg, var(--bg-color), var(--primary-color));
+}
+
 
 /* ================================
    Project
@@ -303,19 +269,19 @@ body.light-mode .experience-section {
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: #fff !important;
   border-radius: 20px;
-  padding: 8px 20px;
 }
 
 /* ================================
    Contact
 ================================= */
-.contact-section {
-  position: relative;
-  height: 80vh;
-  overflow: visible;       
-}
 body.light-mode .contact-section {
     background: linear-gradient(90deg, var(--accent-color), var(--button-bg));
+}
+body.dark-mode .contact-section{
+  background: radial-gradient(var(--primary-color), var(--bg-color));
+}
+.contact-section {
+  height: 80vh;    
 }
 .contact-section a{
   color: var(--bg-color);
@@ -325,7 +291,12 @@ body.light-mode .contact-section {
 body.dark-mode .contact-section a{
   color: #fff;
 }
-
+.contact-icon {
+  color: inherit !important;
+}
+.contact-icon:hover {
+  color: #0d6efd !important;
+}
 
 /* ================================
    Footer
